@@ -1,0 +1,209 @@
+
+SURFACE_MASTER_SPECIES
+Bacta  BactaO-
+Bactb  BactbO-
+Bactc  BactcO-
+Bactd  BactdO-
+
+SURFACE_SPECIES
+BactaO- = BactaO-
+log_k 0
+BactbO- = BactbO-
+log_k 0
+BactcO- = BactcO-
+log_k 0
+BactdO- = BactdO-
+log_k 0
+
+BactaO- + H+ = BactaOH
+log_k 3.3
+BactbO- + H+ = BactbOH
+log_k 4.8
+BactcO- + H+ = BactcOH
+log_k 6.8
+BactdO- + H+ = BactdOH
+log_k 9.1
+
+BactaO- + Zn+2 = BactaOZn+
+log_k 2.6
+BactbO- + Zn+2 = BactbOZn+
+log_k 2.4
+BactcO- + Zn+2 = BactcOZn+
+log_k 4.4
+
+SOLUTION_MASTER_SPECIES
+Noma  NomaO- 1 Noma  1
+Nomb  NombO- 1 Nomb  1
+Nomc  NomcO- 1 Nomc  1
+Nomd  NomdO- 1 Nomd  1
+
+SOLUTION_SPECIES
+NomaO- = NomaO-
+log_k 0
+NombO- = NombO-
+log_k 0
+NomcO- = NomcO-
+log_k 0
+NomdO- = NomdO-
+log_k 0
+
+NomaO- + H+ = NomaOH
+log_k 3.12
+NombO- + H+ = NombOH
+log_k 4.70
+NomcO- + H+ = NomcOH
+log_k 6.57
+NomdO- + H+ = NomdOH
+log_k 8.99
+
+NomaO- + Zn+2 = NomaOZn+
+log_k 2.86
+NombO- + Zn+2 = NombOZn+
+log_k 3.62
+NomcO- + Zn+2 = NomcOZn+
+log_k 2.95
+NomdO- + Zn+2 = NomdOZn+
+log_k 3.48
+
+# 0.2g/L used in 2023
+SOLUTION 1
+    temp      25
+    pH        7
+    pe        4
+    redox     pe
+    units     mol/kgw
+    density   1
+    Cl        0.1
+    Na        0.1
+    Zn        4.59e-5
+    Noma      5.0e-5
+    Nomb      8.3e-5
+    Nomc      4.5e-5
+    Nomd      1.0e-4
+    -water    1 # kg
+
+SURFACE 1
+    BactaO-    0.00081
+    BactbO-    0.0011
+    BactcO-    0.00044
+    BactdO-    0.00074
+    -no_edl
+
+PHASES
+fix_pH
+H+ = H+
+log_k 0
+
+SELECTED_OUTPUT 1
+    -file                 selected_output_1.sel
+    -reset                false
+    -pH                   true
+    -molalities           BactaOZn+  BactbOZn+  BactcOZn+  NomcOZn+
+                          NomaOZn+  NombOZn+  NomdOZn+
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -3.0 HCl 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -3.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -4.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -4.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -5.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -5.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -6.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -6.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -7.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -7.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -8.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -8.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -9.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -9.5 NaOH 10
+END
+
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES
+CO2(g) -3.5 10
+fix_pH -10.0 NaOH 10
+END
