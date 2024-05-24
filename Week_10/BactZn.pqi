@@ -1,0 +1,144 @@
+
+SURFACE_MASTER_SPECIES
+Bacta BactaO-
+Bactb BactbO-
+Bactc BactcO-
+Bactd BactdO-
+
+SURFACE_SPECIES
+BactaO- = BactaO-
+log_k 0
+BactbO- = BactbO-
+log_k 0
+BactcO- = BactcO-
+log_k 0
+BactdO- = BactdO-
+log_k 0
+BactaO- + H+ = BactaOH
+log_k 3.3
+BactbO- + H+ = BactbOH
+log_k 4.8
+BactcO- + H+ = BactcOH
+log_k 6.8
+BactdO- + H+ = BactdOH
+log_k 9.1
+BactaO- + Zn+2 = BactaOZn+
+log_k 3.2
+BactbO- + Zn+2 = BactbOZn+
+log_k 2.4
+BactcO- + Zn+2 = BactcOZn+
+log_k 4.2
+SOLUTION 1
+    temp      25
+    pH        7
+    pe        4
+    redox     pe
+    units     mmol/kgw
+    density   1
+    Cl        120
+    Na        120
+    Zn        0.076
+    -water    1 # kg
+SURFACE 1
+    BactaO-    0.00044
+    BactbO-    0.00056
+    BactcO-    0.00022
+    BactdO-    0.00037
+    -equilibrate Solution 1
+    -no_edl
+PHASES 1
+fix_pH
+H+ = H+
+log_k 0
+
+SELECTED_OUTPUT 1
+    -file                 bact_output.sel
+    -reset                false
+    -pH                   true
+    -molalities           BactaOZn+  BactbOZn+  BactcOZn+
+
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -4.5 HCl 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -5.0 HCl 10
+END
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -5.5 HCl 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -6.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -6.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -7.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -7.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -8.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -8.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -9.0 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -9.5 NaOH 10
+END
+
+USE SOLUTION 1
+USE SURFACE 1
+EQUILIBRIUM_PHASES 1
+CO2(g) -3.5 10
+fix_pH -10.0 NaOH 10
+END
+
